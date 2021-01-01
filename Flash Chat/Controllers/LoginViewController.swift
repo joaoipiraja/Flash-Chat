@@ -1,13 +1,14 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Flash Chat
 //
 //  Created by João Victor Ipirajá de Alencar on 01/01/21.
 //
 
+
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,4 +17,3 @@ class ViewController: UIViewController {
 
 
 }
-

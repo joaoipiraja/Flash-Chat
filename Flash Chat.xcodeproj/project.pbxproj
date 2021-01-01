@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		4E288E88259FAE830087843B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288E87259FAE830087843B /* AppDelegate.swift */; };
 		4E288E8A259FAE830087843B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288E89259FAE830087843B /* SceneDelegate.swift */; };
-		4E288E8C259FAE830087843B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288E8B259FAE830087843B /* ViewController.swift */; };
+		4E288E8C259FAE830087843B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288E8B259FAE830087843B /* WelcomeViewController.swift */; };
 		4E288E91259FAE880087843B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E288E90259FAE880087843B /* Assets.xcassets */; };
 		4E288E94259FAE880087843B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E288E92259FAE880087843B /* LaunchScreen.storyboard */; };
 		4E288E9F259FAE890087843B /* Flash_ChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288E9E259FAE890087843B /* Flash_ChatTests.swift */; };
 		4E288EAA259FAE890087843B /* Flash_ChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288EA9259FAE890087843B /* Flash_ChatUITests.swift */; };
 		4E288EBF259FB58F0087843B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E288EBE259FB58F0087843B /* Main.storyboard */; };
+		4E288EC6259FDE930087843B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288EC5259FDE930087843B /* RegisterViewController.swift */; };
+		4E288ECE259FDEBF0087843B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288ECD259FDEBF0087843B /* LoginViewController.swift */; };
+		4E288ED3259FDEE00087843B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E288ED2259FDEE00087843B /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,7 @@
 		4E288E84259FAE830087843B /* Flash Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flash Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E288E87259FAE830087843B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E288E89259FAE830087843B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4E288E8B259FAE830087843B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4E288E8B259FAE830087843B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		4E288E90259FAE880087843B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E288E93259FAE880087843B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E288E95259FAE880087843B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		4E288EA9259FAE890087843B /* Flash_ChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash_ChatUITests.swift; sourceTree = "<group>"; };
 		4E288EAB259FAE890087843B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E288EBE259FB58F0087843B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4E288EC5259FDE930087843B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4E288ECD259FDEBF0087843B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4E288ED2259FDEE00087843B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +105,9 @@
 		4E288E86259FAE830087843B /* Flash Chat */ = {
 			isa = PBXGroup;
 			children = (
+				4E288EC4259FDE1E0087843B /* Controllers */,
 				4E288E87259FAE830087843B /* AppDelegate.swift */,
 				4E288E89259FAE830087843B /* SceneDelegate.swift */,
-				4E288E8B259FAE830087843B /* ViewController.swift */,
 				4E288EBE259FB58F0087843B /* Main.storyboard */,
 				4E288E90259FAE880087843B /* Assets.xcassets */,
 				4E288E92259FAE880087843B /* LaunchScreen.storyboard */,
@@ -126,6 +132,17 @@
 				4E288EAB259FAE890087843B /* Info.plist */,
 			);
 			path = "Flash ChatUITests";
+			sourceTree = "<group>";
+		};
+		4E288EC4259FDE1E0087843B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E288E8B259FAE830087843B /* WelcomeViewController.swift */,
+				4E288EC5259FDE930087843B /* RegisterViewController.swift */,
+				4E288ECD259FDEBF0087843B /* LoginViewController.swift */,
+				4E288ED2259FDEE00087843B /* ChatViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E288E8C259FAE830087843B /* ViewController.swift in Sources */,
+				4E288E8C259FAE830087843B /* WelcomeViewController.swift in Sources */,
 				4E288E88259FAE830087843B /* AppDelegate.swift in Sources */,
 				4E288E8A259FAE830087843B /* SceneDelegate.swift in Sources */,
+				4E288ECE259FDEBF0087843B /* LoginViewController.swift in Sources */,
+				4E288ED3259FDEE00087843B /* ChatViewController.swift in Sources */,
+				4E288EC6259FDE930087843B /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
