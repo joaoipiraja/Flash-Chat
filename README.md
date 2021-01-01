@@ -1,4 +1,4 @@
-[<img src="/ByteCoin/Assets.xcassets/AppIcon.appiconset/120.png"/>](120.png)
+[<img src="/Flash%20Chat/Assets.xcassets/AppIcon.appiconset/120.png"/>](120.png)
 # Flash Chat
 Flash Chat IOS APP using Swift 5.1
 ### Learn 📝
