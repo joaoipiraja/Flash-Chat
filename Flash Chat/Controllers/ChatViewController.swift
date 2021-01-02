@@ -19,6 +19,7 @@ class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = K.appTitle
         navigationItem.hidesBackButton = true
     }
 
@@ -27,8 +28,6 @@ class ChatViewController: UIViewController {
     let firebaseAuth = Auth.auth()
     do {
       try firebaseAuth.signOut()
-        
-      self.view.makeToast("You have been logged out of your account")
         
         navigationController?.popToRootViewController(animated: true)
         

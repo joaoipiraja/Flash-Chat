@@ -32,10 +32,12 @@ class RegisterViewController: UIViewController {
                     self.view.endEditing(true)
                     self.emailTextfield.text = ""
                     self.passwordTextfield.text = ""
+                    
+                    //show for the result
                     self.view.makeToast(e.localizedDescription)
 
                 }else{
-                    self.performSegue(withIdentifier: "RegisterToChat", sender: self)
+                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
                 }
             }
         }
