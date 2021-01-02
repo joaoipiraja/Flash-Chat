@@ -28,7 +28,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5v2-hE-4Ub" kind="show" id="Xg4-Tf-JvR"/>
+                                    <segue destination="5v2-hE-4Ub" kind="show" identifier="WelcomeToLogin" id="Xg4-Tf-JvR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7D-jv-BlJ" customClass="CLTypingLabel" customModule="CLTypingLabel">
@@ -52,7 +52,7 @@
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Cf6-pZ-Zim"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="WelcomeToRegister" id="Cf6-pZ-Zim"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -98,7 +98,7 @@
                                         <rect key="frame" x="48" y="50" width="318" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -123,7 +123,7 @@
                                             <color key="titleColor" name="BrandBlue"/>
                                         </state>
                                         <connections>
-                                            <action selector="registerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9dE-Sc-egq"/>
+                                            <action selector="registerPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DpR-sz-aO2"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="jY9-l3-E1g">
@@ -133,7 +133,7 @@
                                         <rect key="frame" x="49" y="50" width="317" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="ASCIICapableNumberPad" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
