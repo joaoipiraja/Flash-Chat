@@ -105,10 +105,11 @@
 		4E288E86259FAE830087843B /* Flash Chat */ = {
 			isa = PBXGroup;
 			children = (
+				4E288ED925A0790B0087843B /* View */,
+				4E288ED825A079040087843B /* Model */,
 				4E288EC4259FDE1E0087843B /* Controllers */,
 				4E288E87259FAE830087843B /* AppDelegate.swift */,
 				4E288E89259FAE830087843B /* SceneDelegate.swift */,
-				4E288EBE259FB58F0087843B /* Main.storyboard */,
 				4E288E90259FAE880087843B /* Assets.xcassets */,
 				4E288E92259FAE880087843B /* LaunchScreen.storyboard */,
 				4E288E95259FAE880087843B /* Info.plist */,
@@ -143,6 +144,21 @@
 				4E288ED2259FDEE00087843B /* ChatViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4E288ED825A079040087843B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4E288ED925A0790B0087843B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4E288EBE259FB58F0087843B /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

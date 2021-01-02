@@ -8,12 +8,34 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        animationTitle()
     }
+    
+    
+}
 
 
+extension WelcomeViewController{
+    func animationTitle(){
+        
+        let titleText = self.titleLabel.text ?? ""
+        self.titleLabel.text = ""
+        var characterIndex:Double = 1.0
+        for letter in titleText{
+            
+            Timer.scheduledTimer(withTimeInterval: 0.1*characterIndex, repeats: false) { (timer) in
+                self.titleLabel.text?.append(letter)
+            }
+            
+            characterIndex += 1.0
+            
+            
+        }
+    }
 }
 
