@@ -7,6 +7,8 @@
 
 
 import UIKit
+import Firebase
+import Toast_Swift
 
 class LoginViewController: UIViewController {
 
@@ -14,14 +16,24 @@ class LoginViewController: UIViewController {
       
     @IBOutlet weak var passwordTextfield: UITextField!
        
-
+    
     @IBAction func loginPressed(_ sender: UIButton) {
-        
-       }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let email = emailTextfield.text, let password = passwordTextfield.text{
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                if let e = error{
+                    self?.view.endEditing(true)
+                    self?.emailTextfield.text = ""
+                    self?.passwordTextfield.text = ""
+                    self?.view.makeToast(e.localizedDescription)
+                }else{
+                
+                    self?.performSegue(withIdentifier: "LoginToChat", sender: self)
+                  
+                }
+            }
+        }
     }
+   
 
 
 }

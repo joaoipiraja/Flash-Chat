@@ -263,7 +263,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="F21-w0-z4z" id="BBm-Th-QFN"/>
                         <outlet property="passwordTextfield" destination="abR-gz-opL" id="8lX-aM-ayQ"/>
-                        <segue destination="lwd-AH-u8E" kind="show" id="rzN-hb-VtT"/>
+                        <segue destination="lwd-AH-u8E" kind="show" identifier="LoginToChat" id="rzN-hb-VtT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcE-Gk-YZg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -343,7 +343,13 @@
                             <constraint firstItem="S6L-hg-cne" firstAttribute="top" secondItem="6YX-ca-E8f" secondAttribute="top" id="sQt-L5-8LV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp"/>
+                    <navigationItem key="navigationItem" id="Q5u-eL-Bgp">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="4QH-9G-vRC">
+                            <connections>
+                                <action selector="logOutPressed:" destination="lwd-AH-u8E" id="cg3-x2-7N3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageTextfield" destination="UWj-GQ-Vph" id="57c-z9-WX9"/>
                         <outlet property="tableView" destination="S6L-hg-cne" id="yjy-KF-2iN"/>

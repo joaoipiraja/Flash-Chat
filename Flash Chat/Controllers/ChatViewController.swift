@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import Toast_Swift
 
 class ChatViewController: UIViewController {
     
@@ -17,8 +19,22 @@ class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationItem.hidesBackButton = true
     }
 
-
+    @IBAction func logOutPressed(_ sender: Any) {
+    
+    let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+        
+      self.view.makeToast("You have been logged out of your account")
+        
+        navigationController?.popToRootViewController(animated: true)
+        
+    } catch let signOutError as NSError {
+        self.view.makeToast("Some error happened! Try later")
+    }
+    }
+    
 }
