@@ -26,9 +26,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
 
-        if firebaseManager.signIn(email: emailTextfield.text, password: passwordTextfield.text){
-            self.performSegue(withIdentifier: K.loginSegue, sender: self)
-        }
+       firebaseManager.signIn(email: emailTextfield.text, password: passwordTextfield.text)
+      
     }
    
 
@@ -36,9 +35,18 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: AuthenticationManagerDelegate{
+    func didAuthenticate(isAuthenticate: Bool) {
+        if isAuthenticate{
+            self.performSegue(withIdentifier: K.loginSegue, sender: self)
+        }else{
+            emailTextfield.text = ""
+            passwordTextfield.text = ""
+        }
+    }
+    
     
     func didFailAuthWithError(error: Error) {
-        self.view.makeToast("Something Happen:\(error.localizedDescription)!")
+        self.view.makeToast(error.localizedDescription)
     }
     
 }

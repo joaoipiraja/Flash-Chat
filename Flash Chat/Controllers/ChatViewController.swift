@@ -35,11 +35,7 @@ class ChatViewController: UIViewController {
    
     
     @IBAction func logOutPressed(_ sender: Any) {
-        
-        if(firebaseManager.signout()){
-            navigationController?.popToRootViewController(animated: true)
-        }
-            
+        firebaseManager.signout()
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -91,6 +87,13 @@ extension ChatViewController: MessageManagerDelegate{
 }
 
 extension ChatViewController: AuthenticationManagerDelegate{
+    
+    func didAuthenticate(isAuthenticate: Bool) {
+        if(isAuthenticate){
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
     
     func didFailAuthWithError(error: Error) {
         self.view.makeToast(error.localizedDescription)

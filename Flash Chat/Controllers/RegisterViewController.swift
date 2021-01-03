@@ -10,42 +10,44 @@ import Firebase
 import Toast_Swift
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
+    var firebaseManager = FirebaseManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        firebaseManager.delegateAuthentication = self
     }
     
-    func ToastMessage(){
-        
-    }
+    
     
     @IBAction func registerPressed(_ sender: Any) {
         
-        if let email = emailTextfield.text ,let password = passwordTextfield.text{
-            
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error{
-                    self.view.endEditing(true)
-                    self.emailTextfield.text = ""
-                    self.passwordTextfield.text = ""
-                    
-                    //show for the result
-                    self.view.makeToast(e.localizedDescription)
-
-                }else{
-                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
-                }
-            }
-        }
-        
-       
+        firebaseManager.createUser(email: emailTextfield.text, password: passwordTextfield.text)
     }
     
-
-
+    
+    
+}
+extension RegisterViewController:AuthenticationManagerDelegate{
+    
+    func didAuthenticate(isAuthenticate: Bool) {
+        if(isAuthenticate){
+            self.performSegue(withIdentifier: K.registerSegue, sender: self)
+        }else{
+            self.view.endEditing(true)
+            self.emailTextfield.text = ""
+            self.passwordTextfield.text = ""
+        }
+    }
+    
+    
+    
+    func didFailAuthWithError(error: Error) {
+        self.view.makeToast(error.localizedDescription)
+    }
+    
+    
 }
 

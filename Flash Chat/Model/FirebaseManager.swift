@@ -16,6 +16,7 @@ protocol MessageManagerDelegate {
 
 protocol AuthenticationManagerDelegate{
     func didFailAuthWithError(error: Error)
+    func didAuthenticate(isAuthenticate:Bool)
 }
 
 
@@ -28,29 +29,51 @@ class FirebaseManager{
     var delegateMessage:MessageManagerDelegate?
     var delegateAuthentication:AuthenticationManagerDelegate?
     
-    
-    func signIn(email:String?, password:String?)-> Bool{
-        
-        if let e = email, let p = password{
-            do {
-                try  Auth.auth().signIn(withEmail: e, password: p)
-                return true
-            } catch let signOutError{
-                self.delegateAuthentication?.didFailAuthWithError(error: signOutError)
-              
+    func createUser(email:String?, password:String?){
+        var isCreateUser = false
+        if let e = email ,let p = password{
+            
+            Auth.auth().createUser(withEmail: e, password: p) { authResult, error in
+                if let e = error{
+                    self.delegateAuthentication?.didFailAuthWithError(error: e)
+                    self.delegateAuthentication?.didAuthenticate(isAuthenticate: false)
+                }else{
+                    self.delegateAuthentication?.didAuthenticate(isAuthenticate: true)
+                    print("Create User")
+                }
             }
         }
-        return false
+        
     }
-    func signout() -> Bool{
+    
+    func signIn(email:String?, password:String?){
+        
+        var isSignIn = false
+        if let e = email, let p = password{
+            
+            Auth.auth().signIn(withEmail: e, password: p) { (user, error) in
+                if let e = error{
+                    self.delegateAuthentication?.didFailAuthWithError(error: e)
+                    self.delegateAuthentication?.didAuthenticate(isAuthenticate: false)
+                }else{
+                    self.delegateAuthentication?.didAuthenticate(isAuthenticate: true)
+                    print("Sign In")
+                }
+            }
+         
+        }
+
+    }
+    func signout() {
         do {
             try Auth.auth().signOut()
             
-            return true
+            self.delegateAuthentication?.didAuthenticate(isAuthenticate: true)
             
         } catch let signOutError{
             self.delegateAuthentication?.didFailAuthWithError(error: signOutError)
-            return false
+            self.delegateAuthentication?.didAuthenticate(isAuthenticate: false)
+            
         }
     }
     func sendMessage(withContent messageBody:String?){
