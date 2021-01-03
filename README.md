@@ -3,6 +3,11 @@
 Flash Chat IOS APP using Swift 5.1
 ### Learn 📝
 IOS Navigation Controller,Cocoapods and the Swift Package Manager, Firebase Firestone as Cloud Database, Firebase Authentication, IOS Table Views, Creating Custom UI with .xib files
+#### Cocoapods📚
+- CLTypingLabel
+- Firebase Authentication
+- Firebase Cloud Firestore
+- Toast-Swift
 
 ### Screenshots 📸
 Coming soon!
