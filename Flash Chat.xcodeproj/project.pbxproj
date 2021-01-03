@@ -23,6 +23,7 @@
 		4EF049D325A13A3B00DCC3A9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF049D225A13A3A00DCC3A9 /* Message.swift */; };
 		4EF049DC25A13FAB00DCC3A9 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF049DA25A13FAB00DCC3A9 /* MessageCell.swift */; };
 		4EF049DD25A13FAB00DCC3A9 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EF049DB25A13FAB00DCC3A9 /* MessageCell.xib */; };
+		4EF049F525A2318F00DCC3A9 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF049F425A2318F00DCC3A9 /* FirebaseManager.swift */; };
 		5283654961C6E44A07F1EFFF /* Pods_Flash_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7301DF83178ADFF9C26B9853 /* Pods_Flash_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		4EF049D225A13A3A00DCC3A9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4EF049DA25A13FAB00DCC3A9 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		4EF049DB25A13FAB00DCC3A9 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		4EF049F425A2318F00DCC3A9 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		7301DF83178ADFF9C26B9853 /* Pods_Flash_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8268F88882DF5B599C57DCF3 /* Pods-Flash Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat.release.xcconfig"; path = "Target Support Files/Pods-Flash Chat/Pods-Flash Chat.release.xcconfig"; sourceTree = "<group>"; };
 		E19A16356AE98B25C809E4B7 /* Pods-Flash Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat.debug.xcconfig"; path = "Target Support Files/Pods-Flash Chat/Pods-Flash Chat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		4E288EC4259FDE1E0087843B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4EF049DA25A13FAB00DCC3A9 /* MessageCell.swift */,
 				4E288E8B259FAE830087843B /* WelcomeViewController.swift */,
 				4E288EC5259FDE930087843B /* RegisterViewController.swift */,
 				4E288ECD259FDEBF0087843B /* LoginViewController.swift */,
@@ -186,6 +189,7 @@
 			children = (
 				4EF049CC25A130D700DCC3A9 /* Constant.swift */,
 				4EF049D225A13A3A00DCC3A9 /* Message.swift */,
+				4EF049F425A2318F00DCC3A9 /* FirebaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				4E288EBE259FB58F0087843B /* Main.storyboard */,
-				4EF049DA25A13FAB00DCC3A9 /* MessageCell.swift */,
 				4EF049DB25A13FAB00DCC3A9 /* MessageCell.xib */,
 			);
 			path = View;
@@ -383,6 +386,7 @@
 				4E288ECE259FDEBF0087843B /* LoginViewController.swift in Sources */,
 				4EF049D325A13A3B00DCC3A9 /* Message.swift in Sources */,
 				4E288ED3259FDEE00087843B /* ChatViewController.swift in Sources */,
+				4EF049F525A2318F00DCC3A9 /* FirebaseManager.swift in Sources */,
 				4E288EC6259FDE930087843B /* RegisterViewController.swift in Sources */,
 				4EF049DC25A13FAB00DCC3A9 /* MessageCell.swift in Sources */,
 			);

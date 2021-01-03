@@ -6,39 +6,45 @@
 //
 
 import UIKit
-import Firebase
-import Toast_Swift
+
 
 
 class ChatViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
+    var firebaseManager = FirebaseManager()
+    var messages = [Message]()
     
-    var messages:[Message] = [Message(sender: "1@2.com", body: "Hey"),Message(sender: "1@2.com", body: "Hello!")]
     
-    @IBAction func sendPressed(_ sender: UIButton) {
-       }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        firebaseManager.delegateMessage = self
+        firebaseManager.delegateAuthentication = self
         title = K.appTitle
         navigationItem.hidesBackButton = true
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        firebaseManager.loadMessages()
+       
     }
-
-    @IBAction func logOutPressed(_ sender: Any) {
     
-    do {
-      try Auth.auth().signOut()
+   
+    
+    @IBAction func logOutPressed(_ sender: Any) {
         
-        navigationController?.popToRootViewController(animated: true)
-        
-    } catch let signOutError as NSError {
-        self.view.makeToast("Some error happened! Try later")
+        if(firebaseManager.signout()){
+            navigationController?.popToRootViewController(animated: true)
+        }
+            
     }
+    
+    @IBAction func sendPressed(_ sender: UIButton) {
+        firebaseManager.sendMessage(withContent: messageTextfield.text)
+        messageTextfield.text = ""
     }
     
 }
@@ -59,8 +65,34 @@ extension ChatViewController:UITableViewDataSource{
     
 }
 
+//MARK: - ChatTableViewDelegate
+
 extension ChatViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //break
+    }
+}
+
+//MARK: - MessageManagerDelegate
+
+
+extension ChatViewController: MessageManagerDelegate{
+    
+    func didUpdateMessages(_ firebaseManager: FirebaseManager, messages: [Message]) {
+        self.messages = messages
+        self.tableView.reloadData()
+
+    }
+    
+    func didFailMessageWithError(error: Error) {
+        self.view.makeToast("Something happen with the messages! Please Try Again...")
+    }
+  
+}
+
+extension ChatViewController: AuthenticationManagerDelegate{
+    
+    func didFailAuthWithError(error: Error) {
+        self.view.makeToast(error.localizedDescription)
     }
 }

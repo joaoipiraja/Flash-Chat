@@ -11,29 +11,34 @@ import Firebase
 import Toast_Swift
 
 class LoginViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var emailTextfield: UITextField!
-      
     @IBOutlet weak var passwordTextfield: UITextField!
+    var firebaseManager = FirebaseManager()
        
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        firebaseManager.delegateAuthentication = self
+    }
+    
     @IBAction func loginPressed(_ sender: UIButton) {
-        if let email = emailTextfield.text, let password = passwordTextfield.text{
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                if let e = error{
-                    self?.view.endEditing(true)
-                    self?.emailTextfield.text = ""
-                    self?.passwordTextfield.text = ""
-                    self?.view.makeToast(e.localizedDescription)
-                }else{
-                
-                    self?.performSegue(withIdentifier: K.loginSegue, sender: self)
-                  
-                }
-            }
+
+        if firebaseManager.signIn(email: emailTextfield.text, password: passwordTextfield.text){
+            self.performSegue(withIdentifier: K.loginSegue, sender: self)
         }
     }
    
 
 
+}
+
+extension LoginViewController: AuthenticationManagerDelegate{
+    
+    func didFailAuthWithError(error: Error) {
+        self.view.makeToast("Something Happen:\(error.localizedDescription)!")
+    }
+    
 }
