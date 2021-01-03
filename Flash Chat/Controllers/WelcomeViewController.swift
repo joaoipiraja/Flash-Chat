@@ -18,6 +18,7 @@ class WelcomeViewController: UIViewController {
         titleLabel.text = K.appTitle
     }
         
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

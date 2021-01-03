@@ -52,11 +52,10 @@ extension ChatViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier)
-        cell?.textLabel?.text = "\(messages[indexPath.row].body)"
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell //Make a type cast of message cell
+        cell.label.text = "\(messages[indexPath.row].body)"
+        return cell
     }
-    
     
 }
 
