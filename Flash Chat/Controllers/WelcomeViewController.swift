@@ -35,6 +35,10 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(FirebaseManager.isAuthenticated()){
+            self.performSegue(withIdentifier: K.welcomeSegue, sender: self)
+        }
 
     }
     
