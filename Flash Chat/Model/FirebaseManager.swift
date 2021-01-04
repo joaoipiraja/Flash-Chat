@@ -29,6 +29,10 @@ class FirebaseManager{
     var delegateMessage:MessageManagerDelegate?
     var delegateAuthentication:AuthenticationManagerDelegate?
     
+    
+    func getEmailofCurrentUser() -> String?{
+        return Auth.auth().currentUser?.email
+    }
     func createUser(email:String?, password:String?){
         if let e = email ,let p = password{
             

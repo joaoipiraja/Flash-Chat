@@ -39,6 +39,7 @@ extension LoginViewController: AuthenticationManagerDelegate{
         if isAuthenticate{
             self.performSegue(withIdentifier: K.loginSegue, sender: self)
         }else{
+            self.view.endEditing(true)
             emailTextfield.text = ""
             passwordTextfield.text = ""
         }
