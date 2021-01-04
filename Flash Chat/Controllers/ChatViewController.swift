@@ -93,8 +93,11 @@ extension ChatViewController: MessageManagerDelegate{
         self.tableView.reloadData()
         
         //Scrool to the last message
-        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        if(messages.count > 0){
+            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+       
 
     }
     
