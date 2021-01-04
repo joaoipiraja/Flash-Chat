@@ -30,7 +30,6 @@ class FirebaseManager{
     var delegateAuthentication:AuthenticationManagerDelegate?
     
     func createUser(email:String?, password:String?){
-        var isCreateUser = false
         if let e = email ,let p = password{
             
             Auth.auth().createUser(withEmail: e, password: p) { authResult, error in
@@ -48,7 +47,6 @@ class FirebaseManager{
     
     func signIn(email:String?, password:String?){
         
-        var isSignIn = false
         if let e = email, let p = password{
             
             Auth.auth().signIn(withEmail: e, password: p) { (user, error) in
@@ -60,9 +58,9 @@ class FirebaseManager{
                     print("Sign In")
                 }
             }
-         
+            
         }
-
+        
     }
     func signout() {
         do {
@@ -73,21 +71,26 @@ class FirebaseManager{
         } catch let signOutError{
             self.delegateAuthentication?.didFailAuthWithError(error: signOutError)
             self.delegateAuthentication?.didAuthenticate(isAuthenticate: false)
-            
         }
     }
+    
+    
     func sendMessage(withContent messageBody:String?){
         if let mb = messageBody ,let messageSender = Auth.auth().currentUser?.email{
-            db.collection(K.FStore.collectionName).addDocument(data: [
-                K.FStore.senderField:messageSender,
-                K.FStore.bodyField: messageBody
-            ]){ err in
-                if let err = err {
-                    self.delegateMessage?.didFailMessageWithError(error: err)
-                }else{
-                    self.loadMessages()
+            if (!mb.isEmpty){
+                db.collection(K.FStore.collectionName).addDocument(data: [
+                    K.FStore.senderField:messageSender,
+                    K.FStore.bodyField: mb,
+                    K.FStore.dateField: Date().timeIntervalSince1970
+                ]){ err in
+                    if let err = err {
+                        self.delegateMessage?.didFailMessageWithError(error: err)
+                    }else{
+                        self.loadMessages()
+                    }
                 }
             }
+           
             
         }
     }
@@ -95,13 +98,19 @@ class FirebaseManager{
     
     
     func loadMessages(){
-        messages = []
-        db.collection(K.FStore.collectionName).getDocuments() { (querySnapshot, err) in
+        
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener{ (querySnapshot, err) in
+                
+            self.messages = []
+            
             if let err = err {
                 self.delegateMessage?.didFailMessageWithError(error: err)
                 
             } else {
                 if let snapshotsDocuments = querySnapshot?.documents{
+                    
                     for doc in snapshotsDocuments{
                         let data = doc.data()
                         if let sender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String{
