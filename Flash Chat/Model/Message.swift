@@ -10,5 +10,4 @@ import Foundation
 struct Message{
     let sender:String //The email from who send the message
     let body:String
-    
 }
