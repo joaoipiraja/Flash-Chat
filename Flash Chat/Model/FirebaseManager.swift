@@ -30,7 +30,7 @@ class FirebaseManager{
     var delegateAuthentication:AuthenticationManagerDelegate?
     
     
-    static func getEmailofCurrentUser() -> String?{
+    func getEmailofCurrentUser() -> String?{
         return Auth.auth().currentUser?.email
     }
     

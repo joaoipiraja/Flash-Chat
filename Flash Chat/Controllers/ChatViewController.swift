@@ -62,7 +62,7 @@ extension ChatViewController:UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell //Make a type cast of message cell
         cell.label.text = "\(messages[indexPath.row].body)"
         
-        if message.sender == FirebaseManager.getEmailofCurrentUser(){
+        if message.sender == firebaseManager.getEmailofCurrentUser(){
             cell.leftImageView.isHidden = true
             cell.rightImageView.isHidden = false
             cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightPurple)
