@@ -30,9 +30,18 @@ class FirebaseManager{
     var delegateAuthentication:AuthenticationManagerDelegate?
     
     
-    func getEmailofCurrentUser() -> String?{
+    static func getEmailofCurrentUser() -> String?{
         return Auth.auth().currentUser?.email
     }
+    
+    static func isAuthenticated() -> Bool {
+        if let user = Auth.auth().currentUser{
+            return true
+        }else{
+            return false
+        }
+    }
+    
     func createUser(email:String?, password:String?){
         if let e = email ,let p = password{
             
