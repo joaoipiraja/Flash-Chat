@@ -74,6 +74,7 @@
                     <navigationItem key="navigationItem" id="mEe-Ib-fhx"/>
                     <connections>
                         <outlet property="titleLabel" destination="y7D-jv-BlJ" id="lge-q2-wrP"/>
+                        <segue destination="lwd-AH-u8E" kind="show" identifier="WelcomeToChat" id="dM1-Ff-m0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0w-oB-wTX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -384,7 +385,7 @@
         <designable name="y7D-jv-BlJ"/>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="rzN-hb-VtT"/>
+        <segue reference="dM1-Ff-m0n"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
