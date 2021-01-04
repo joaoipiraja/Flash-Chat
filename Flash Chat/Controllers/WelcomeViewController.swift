@@ -7,6 +7,8 @@
 
 import UIKit
 import CLTypingLabel
+import UserNotifications
+import Toast_Swift
 
 class WelcomeViewController: UIViewController {
     
@@ -18,19 +20,23 @@ class WelcomeViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         titleLabel.text = K.appTitle
     }
         
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        
     }
     
     

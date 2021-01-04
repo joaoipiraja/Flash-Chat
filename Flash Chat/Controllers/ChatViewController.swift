@@ -22,7 +22,6 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        tableView.delegate = self
         firebaseManager.delegateMessage = self
         firebaseManager.delegateAuthentication = self
         title = K.appTitle
@@ -82,13 +81,6 @@ extension ChatViewController:UITableViewDataSource{
     
 }
 
-//MARK: - ChatTableViewDelegate
-
-extension ChatViewController:UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //break
-    }
-}
 
 //MARK: - MessageManagerDelegate
 
@@ -111,6 +103,7 @@ extension ChatViewController: MessageManagerDelegate{
     }
   
 }
+//MARK: - AuthenticationManagerDelegate
 
 extension ChatViewController: AuthenticationManagerDelegate{
     
